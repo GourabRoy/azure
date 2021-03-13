@@ -1,0 +1,6 @@
+sudo apt-get install git
+mkdir project
+mkdir project/java
+cd project/java
+git clone https://github.com/virenpunjabi/MovieLens.git
+cd MovieLens/server

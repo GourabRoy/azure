@@ -1,0 +1,7 @@
+sudo docker build -t movielens_base -f --no-cache Dockerfile_build .
+sudo docker build -t movielens -f Dockerfile --no-cache .
+sudo docker run --name movielens_service -dp 80:8080 movielens 
+
+
+az vm open-port --port 80 --resource-group free-trial-rs-explore --name exploreLinux2
+

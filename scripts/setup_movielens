@@ -1,0 +1,46 @@
+Create Azure resource group from portal
+    name : movielens
+    location : centralindia
+
+az storage account create \
+    --name storageaccount \
+    --resource-group movielens \
+    --location centralindia \
+    --sku Standard_RAGRS \
+    --kind StorageV2
+
+az vm create \
+    --resource-group movielens \
+    --name vm_gen \
+    --image UbuntuLTS \
+    --admin-username gourab \
+    --vnet-name vnet_movielens \
+    --subnet subnet_movielens \
+    --generate-ssh-keys   
+
+az vm create \
+    --resource-group movielens \
+    --name vm_ui_backend \
+    --image UbuntuLTS \
+    --admin-username gourab \
+    --vnet-name vnet_movielens \
+    --subnet subnet_movielens \
+    --generate-ssh-keys   
+
+az vm create \
+    --resource-group movielens \
+    --name vm_storage \
+    --image UbuntuLTS \
+    --admin-username gourab \
+    --vnet-name vnet_movielens \
+    --subnet subnet_movielens \
+    --generate-ssh-keys   
+
+# open port 80
+az vm open-port --port 80 --resource-group movielens --name vm_ui_backend
+
+
+
+
+
+
